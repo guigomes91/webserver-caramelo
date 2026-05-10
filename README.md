@@ -149,6 +149,8 @@ GET /caramelo
 | max | 6.22s |
 | Erros | ~1.2% |
 
+![Grafico](./src/main/resources/static/latency_vs_concurrency_dark.png)
+
 ---
 
 ## Análise
