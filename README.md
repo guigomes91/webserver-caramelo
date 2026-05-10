@@ -1,8 +1,8 @@
-# Virtual Threads vs Platform Threads — Benchmark de Concorrência em Java
+# Virtual Threads vs Platform Threads - Benchmark de Concorrência em Java
 
 > Demonstração reproduzível e mensurável do impacto de **Virtual Threads (Project Loom)** vs **Platform Threads** sob carga concorrente com I/O bloqueante (PostgreSQL + HikariCP).
 
-O objetivo não é um "hello world". O foco está em observar comportamentos reais sob pressão:
+O que iremos observar? Comportamentos reais sob pressão:
 
 - Throughput sob contenção
 - Latência (p50, p95, p99)
@@ -121,7 +121,7 @@ GET /caramelo
 | Parâmetro | Valor |
 |---|---|
 | Pool HikariCP | 50 conexões |
-| Query | `SELECT * FROM carro` |
+| Query | `SELECT pg_sleep(0.2)` |
 | Concorrência | até 500 VUs |
 | Duração | 30s |
 
@@ -155,7 +155,7 @@ GET /caramelo
 
 ### Throughput
 
-Aproximadamente igual nos dois cenários — limitado pelo pool de conexões (DB), não pelo modelo de threads.
+Aproximadamente igual nos dois cenários, limitado pelo pool de conexões (DB), não pelo modelo de threads.
 
 ### Latência
 

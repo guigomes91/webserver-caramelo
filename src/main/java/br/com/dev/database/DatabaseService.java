@@ -11,17 +11,17 @@ public class DatabaseService {
 
     static {
         var config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://localhost:5432/mm");
-        config.setUsername("postgres");
-        config.setPassword("SisPort@Server");
+        config.setJdbcUrl("jdbc:postgresql://localhost:5432/test");
+        config.setUsername("test");
+        config.setPassword("test");
 
-        config.setMaximumPoolSize(50); // gargalo real
+        config.setMaximumPoolSize(100); // gargalo real (altere aqui para as medições de contenções)
 
         dataSource = new HikariDataSource(config);
     }
 
     public static String query() {
-        boolean deterministic = true;
+        boolean deterministic = true; //Você pode testar de forma deterministica ou real, direto em uma tabela
         String sql = deterministic
                 ? "SELECT pg_sleep(0.2)"
                 : "SELECT * FROM carro";

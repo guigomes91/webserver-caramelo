@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class Server {
 
     static void main(String[] args) throws Exception {
-        boolean virtual = Boolean.parseBoolean(System.getProperty("virtual", "true"));
+        boolean virtual = Boolean.parseBoolean(System.getProperty("virtual", "false"));
         boolean withLock = Boolean.parseBoolean(System.getProperty("lock", "false"));
 
         startWebServer(virtual, withLock);
